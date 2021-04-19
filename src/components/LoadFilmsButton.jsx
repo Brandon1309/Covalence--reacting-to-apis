@@ -1,62 +1,46 @@
 import React, { useEffect } from "react"
 import { useState, render } from "react-dom";
 import FilmData from "./FilmData";
+import PeopleData from "./PeopleData";
+
 const LoadFilmsButton = (props) => {
   // try 1
-  const [showFilms, setShowFilms] = useState(true)
-  let wantToShowFilms = true;
+  const [showFilms, setShowFilms] = React.useState(false);
+  const [people, setPeople] = React.useState(false)
 
-  const handleClickEvent = () => {
-    wantToShowFilms = true;
-    console.log(wantToShowFilms);
+  const handlePeopleClickEvent = () => {
+    setPeople(!people);
+    console.log(people);
+
+}
+  const handleFilmsClickEvent = () => {
+    setShowFilms(!showFilms)
+    console.log(showFilms);
+
+    
   }
+  if(showFilms) {
+    return (
+      <div>
+        <FilmData wantFilms={true} />
+      </div>
+    )
+  }  else if (people) {
+    return(
+      <div>
+    <PeopleData />
 
-  return (
+      </div>
+    )
+  } else {
+    return (
     <div>
+    <button onClick={handleFilmsClickEvent}>Load Films</button>
+    <button onClick={handlePeopleClickEvent}>Load People</button>
 
-      <FilmData wantFilms={true} />
     </div>
-
-  )
-  // if (wantToShowFilms) {
-  //   return <FilmData wantFilms={true} />
-  // } else {
-  //   return <button onClick={handleClickEvent}>Load Films</button>
-  //   return (
-  //     <div>
-
-  //       {(wantFilms) ? <FilmData /> : <button onClick={handleClickEvent}>Load Films</button>}
-
-  //     </div>
-  //   )
-  // }
-
-  /////Try 2
-  // const [show, setShow] = useState(false);
-
-  // const handleClickEvent = () => {
-  //   setShow(current => current)
-  // }
-  // useEffect(() => {
-  //   console.log(show);
-  // }, [show])
-
-  // if (show) {
-  //   return (
-  //     <FilmData wantFilms={true} />
-  //   )
-  // }
-  // else {
-  //   return <button onClick={handleClickEvent}>Load Films</button>
-  // }
-
-  return (
-    <div>
-      <button onClick={handleClickEvent}>Load Films</button>
-    </div>
-  )
-
-
+    )
+  }
 
 }
 export default LoadFilmsButton;

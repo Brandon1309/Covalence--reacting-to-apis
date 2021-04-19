@@ -15,8 +15,9 @@ const FilmData = (props) => {
   return (
     <>
       {films.map(film => (
-        <div key={`film-card-${film.id}`}>
-          <p>{film.title}</p>
+        <div className="card m-2" key={`film-card-${film.id}`}>
+          <h2>{film.title}</h2>
+          <p>{film.description}</p>
         </div>
       ))}
 
