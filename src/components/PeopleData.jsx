@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 
 const PeopleData = (props) => {
     let wantPeople = props.wantPeople;
@@ -14,14 +14,14 @@ const PeopleData = (props) => {
     }, [])
     return (
         <>
-        {people.map(person => (
-            <div>
-                <h2> {person.name}</h2>
-                <p>{person.age}</p>
-                <p>{person.gender}</p>
-                <p><a href={person.url}>{person.url}</a></p>
-            </div>
-        ))}
+            {people.map(person => (
+                <div>
+                    <h2> {person.name}</h2>
+                    <p>{person.age}</p>
+                    <p>{person.gender}</p>
+                    <p><a href={person.url}>{person.url}</a></p>
+                </div>
+            ))}
         </>
     )
 }

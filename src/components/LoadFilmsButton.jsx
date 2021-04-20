@@ -1,44 +1,42 @@
-import React, { useEffect } from "react"
-import { useState, render } from "react-dom";
+import React, { useState, useEffect } from "react"
 import FilmData from "./FilmData";
 import PeopleData from "./PeopleData";
 
 const LoadFilmsButton = (props) => {
-  // try 1
-  const [showFilms, setShowFilms] = React.useState(false);
-  const [people, setPeople] = React.useState(false)
+  const [showFilms, setShowFilms] = useState(false);
+  const [people, setPeople] = useState(false)
 
   const handlePeopleClickEvent = () => {
     setPeople(!people);
     console.log(people);
 
-}
+  }
   const handleFilmsClickEvent = () => {
     setShowFilms(!showFilms)
     console.log(showFilms);
 
-    
+
   }
-  if(showFilms) {
+  if (showFilms) {
     return (
       <div>
         <FilmData wantFilms={true} />
       </div>
     )
-  }  else if (people) {
-    return(
+  } else if (people) {
+    return (
       <div>
-    <PeopleData />
+        <PeopleData />
 
       </div>
     )
   } else {
     return (
-    <div>
-    <button onClick={handleFilmsClickEvent}>Load Films</button>
-    <button onClick={handlePeopleClickEvent}>Load People</button>
+      <div>
+        <button onClick={handleFilmsClickEvent}>Load Films</button>
+        <button onClick={handlePeopleClickEvent}>Load People</button>
 
-    </div>
+      </div>
     )
   }
 
